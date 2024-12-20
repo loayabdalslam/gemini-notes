@@ -48,12 +48,7 @@ export function useAudioStream() {
           echoCancellation: true,
           noiseSuppression: true,
           autoGainControl: false,
-        },
-        video: {
-          width: 1,
-          height: 1,
-          frameRate: 1,
-        },
+          channelCount: 2,},
       };
 
       const stream = await navigator.mediaDevices.getDisplayMedia(constraints);
