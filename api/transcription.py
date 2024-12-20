@@ -4,12 +4,6 @@ import subprocess
 import logging
 from datetime import datetime
 import google.generativeai as genai
-import os
-
-# Suppress logging warnings
-os.environ["GRPC_VERBOSITY"] = "ERROR"
-os.environ["GLOG_minloglevel"] = "2"
-
 
 # Configure logging
 logger = logging.getLogger(__name__)
@@ -109,7 +103,7 @@ def transcribe_audio():
             prompt = """
             Please transcribe this audio file accurately and provide a clear, well-formatted transcription.
             Include proper punctuation and maintain natural speech patterns.
-            If there are multiple speakers, please indicate speaker changes. result in arabic language
+            If there are multiple speakers, please indicate speaker changes.
             """
 
             logger.info("Sending transcription request to Gemini")
@@ -173,7 +167,7 @@ def summarize_text():
         Please provide a concise summary of the following transcription:
         {text}
 
-        Focus on the key points and main ideas. Keep the summary clear and well-structured. result in arabic language
+        Focus on the key points and main ideas. Keep the summary clear and well-structured.
         """
         response = model.generate_content(prompt)
         summary = response.text
