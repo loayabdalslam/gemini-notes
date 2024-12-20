@@ -13,9 +13,8 @@ logging.basicConfig(level=logging.INFO)
 transcription_bp = Blueprint('transcription', __name__)
 
 # Configure Gemini
-genai.configure(api_key='AIzaSyAHpVJiE-Q6D-GYUO4KTxGh8ok1i58GZHQ')
+genai.configure(api_key='AIzaSyAHpVJiE-Q6D-GYUO4KTxGh8ok1i58GZHQ',transport='rest')
 model = genai.GenerativeModel('gemini-1.5-flash')
-
 # Configure directories
 UPLOAD_DIR = "uploads"
 if not os.path.exists(UPLOAD_DIR):
